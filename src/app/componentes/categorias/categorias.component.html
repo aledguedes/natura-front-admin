@@ -1,0 +1,32 @@
+<app-navbar></app-navbar>
+
+<div class="container-fluid">
+    <div class="row text-center">
+        <h1>Gerenciar categoria</h1>
+    </div>
+</div>
+
+<div class="container">
+    <div class="col-sm">
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th scope="col">ID</th>
+                    <th scope="col">Categoria</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- AQUI O LOOP DAS CATEGORIAS -->
+                <tr *ngFor="let Item of lista">
+                    <td scope="row">{{ Item.id }}</td>
+                    <td><a class="nav-link" routerLink='/editarcategoria/{{Item.id}}'>{{ Item.nome }}</a></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="d-flex justify-content-center mb-3">
+        <a type="button" class="btn btn-primary" routerLink='/editarcategoria/new'>
+            <i class="fas fa-plus"></i> Add Categoria
+        </a>
+    </div>
+</div>
