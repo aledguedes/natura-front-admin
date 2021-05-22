@@ -8,7 +8,7 @@ import { Categoria } from '../model/Categoria';
 export class CategoriaService {
 
   constructor(private http : HttpClient) { }
-/*
+
   public getAllCategorias() {
     let token: string;
     token = localStorage.getItem("LTRTK");
@@ -17,17 +17,17 @@ export class CategoriaService {
       'Authorization': token
     }
     return this.http.get("http://localhost:8080/categoriasbyid", { headers :  header } );
-  }*/
-  public getAllCategorias() {
-    return this.http.get("http://localhost:8080/categorias");
   }
+/*  public getAllCategorias() {
+    return this.http.get("http://localhost:8080/categorias");
+  }*/
 
   public getById(id:number){
     let token: string;
     token = localStorage.getItem("LTRTK");
 
     let header={
-      'Authorization': token
+      'Authorization':token
     }
     return this.http.get("http://localhost:8080/categorias/"+id, { headers :  header } );
   }

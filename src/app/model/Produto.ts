@@ -7,5 +7,6 @@ export class Produto{
 	public linkFoto : string;
 	public preco: number;
 	public disponivel: number;
+	public destaque : number;
 	public categoria : Categoria;
 }
