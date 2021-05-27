@@ -9,4 +9,9 @@ export class Produto{
 	public disponivel: number;
 	public destaque : number;
 	public categoria : Categoria;
+
+	public constructor(){
+		this.categoria = new Categoria();
+		this.categoria.id = 0;
+	}
 }
