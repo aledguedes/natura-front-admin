@@ -19,11 +19,30 @@ export class ProdutosComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  public destaque(id : number){
-    console.log("Destaque "+id);
+  public destaque(produto: Produto){
+    //console.log("Destaqueee = "+produto.id + " destak = "+produto.destaque);
+    produto.destaque = (produto.destaque)? 1: 0;
+    this.service.atualizarProduto(produto).subscribe(
+      (res: Produto) => {
+        console.log("Produto "+ res);
+      },
+      (err) => {
+        alert("Erro ao atualizar destaque do Produto "+produto.nome);
+      }
+    );    
   }
-  public disponivel(id : number){
-    console.log("Disponivel "+id);
+  
+  public disponivel(produto: Produto){
+    //console.log("Disponivel = "+produto.id + " disp = "+produto.disponivel);
+    produto.disponivel = (produto.disponivel)? 1:0;
+    this.service.atualizarProduto(produto).subscribe(
+      (res: Produto) => {
+        console.log("Produto "+ res);
+      },
+      (err) => {
+        alert("Erro ao atualizar disponibilidade do Produto "+produto.nome);
+      }
+    );
   }
   
 }

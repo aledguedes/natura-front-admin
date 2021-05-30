@@ -1,25 +1,24 @@
 <app-navbar></app-navbar>
 <div class="container">
-    <div class="row text-center">
+    <div class="row text-center" *ngIf="mode == 1">
         <h1>Editar categoria</h1>
     </div>
 
-    <div class="row" *ngIf="mode == 0">
-        <div class="col-12">
-            <p>Inserir nova categoria.</p>
-        </div>
+    <div class="row text-center" *ngIf="mode == 0">
+        <h1>Inserir nova categoria.</h1>
     </div>
-    <div class="mb-3">
+
+    <div class="col-sm mb-3">
         <label for="TxtNomeCategoria" class="form-label">Nome Categoria</label>
         <input type="text" class="form-control" id="TxtNome" [(ngModel)]="categoria.nome">
     </div>
-</div>
-<div class="container d-flex justify-content-evenly mb-3">
-    <button type="button" class="btn btn-primary" routerLink='/categorias'>
-        <i class="fas fa-arrow-left"></i> Voltar
-    </button>
-
-    <button type="button" class="btn btn-primary" (click)="atualizarCategoria()">
-        Atualizar Categoria
-    </button>
+    <div class="container d-flex justify-content-evenly mb-3">
+        <button type="button" class="btn btn-primary" routerLink='/categorias'>
+            <i class="fas fa-arrow-left"></i> Voltar
+        </button>
+    
+        <button type="button" class="btn btn-primary" (click)="atualizarCategoria()">
+            Atualizar Categoria
+        </button>
+    </div>
 </div>

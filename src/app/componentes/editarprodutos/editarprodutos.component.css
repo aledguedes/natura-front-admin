@@ -1,8 +1,20 @@
 #checks {
     padding-top: 22px;
 }
-.imgLink{
+#divFoto{
     border: 1px dashed #c1c1c1;
     min-height: 4em;
+    max-width: auto;
+    margin: 1em;
+}
+#btnModal{
+    visibility: hidden;
+}
+.ajuste{
     margin: 1em 0;
+}
+
+img{
+    max-width: 300px;
+    max-height: 300px;
 }

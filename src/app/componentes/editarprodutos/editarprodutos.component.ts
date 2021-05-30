@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Categoria } from 'src/app/model/Categoria';
 import { PathDTO } from 'src/app/model/PathDTO';
 import { Produto } from 'src/app/model/Produto';
@@ -16,17 +16,34 @@ export class EditarprodutosComponent implements OnInit {
   public mode: number = 1;
   public listaCategorias: Categoria[] = [];
   public produto: Produto;
+  public destaque : boolean;
+  public disponivel : boolean;
   public arquivo: File;
+  public success : boolean;
+  public result: number;
+  public mensagemTOAST: string;
 
   constructor(private activatedRoute: ActivatedRoute,
               private categService  : CategoriaService,
-              private produtoService: ProdutoService) { 
+              private produtoService: ProdutoService,
+              private router : Router) { 
 
     this.produto = new Produto();
     let id = this.activatedRoute.snapshot.params["id"];
     if (id === "new"){
       this.mode = 0;
     }
+    else{
+      // a ideia agora é recuperar o produto pelo ID
+      this.produtoService.recuperarPeloId(id).subscribe(
+        (res : Produto) =>{
+          this.produto = res;
+          this.destaque = (this.produto.destaque == 1)? true : false;
+          this.disponivel = (this.produto.disponivel == 1)? true : false;
+        }
+      );
+    }
+    this.result = 0;
 
     // independente de qualquer coisa, busco todas as categorias
     this.categService.getAllCategorias().subscribe(
@@ -49,7 +66,7 @@ export class EditarprodutosComponent implements OnInit {
     
     this.produtoService.uploadFoto(formData).subscribe(
       (res: PathDTO) => {  
-          this.produto.linkFoto = "/assets"+res.pathToFile;
+          this.produto.linkFoto = "/assets/"+res.pathToFile;
       }
     )
   }
@@ -59,4 +76,52 @@ export class EditarprodutosComponent implements OnInit {
       this.arquivo = event.target.files[0];    
   }
 
+  public inserirProduto(){
+    this.produto.disponivel = (this.disponivel)?1:0;
+    this.produto.destaque = (this.destaque)?1:0;
+    console.log(this.produto);
+    // NOVO PRODUTO
+    if(this.mode == 0){
+      this.produtoService.enviarProduto(this.produto).subscribe(
+        (res : Produto) => {
+          this.result = 1; // ou seja, sucesso
+          this.mensagemTOAST = "Produto inserido com sucesso!";
+          //alert( "Produto inserido com sucesso!");
+          document.getElementById("btnModal").click();
+        }, 
+        (err) => {
+          this.result = -1; // ou seja, erro
+          this.mensagemTOAST = "Erro ao inserir produto!";
+          //alert("Erro ao inserir produto!");
+          document.getElementById("btnModal").click();
+        }
+      );
+    }
+    //ATUAZLIZAR PRODUTO
+    else{
+      this.produto.disponivel = (this.disponivel)?1:0;
+      this.produto.destaque = (this.destaque)?1:0;
+
+      this.produtoService.atualizarProduto(this.produto).subscribe(
+        (res : Produto) => {
+          this.result = 1; // ou seja, sucesso
+          this.mensagemTOAST = "Produto atualizado com sucesso!";
+          //alert( "Produto inserido com sucesso!");
+          document.getElementById("btnModal").click();
+        }, 
+        (err) => {
+          this.result = -1; // ou seja, erro
+          this.mensagemTOAST = "Erro ao atualizar o produto!";
+          //alert("Erro ao inserir produto!");
+          document.getElementById("btnModal").click();
+        } 
+      ); 
+    }
+  }
+  
+  public fecharModal() {
+    if (this.result == 1) {
+      this.router.navigate(['/produtos']);
+    }
+  }
 }

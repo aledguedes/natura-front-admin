@@ -1,3 +1,4 @@
+<!-- versão com JS
 <div class="modal-overlay" id="overlay">
     <div class="modal" id="modal">
         <div class="modal-header">
@@ -13,9 +14,11 @@
 </div>
 
 <button onclick="openModal()">Open modal</button>
+-->
 
-<!--
-    <div class="container-fluid">
+<!--versão com navabar horizontal-->
+
+<div class="container-fluid">
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container-fluid">
             <span class="navbar-brand">NaturaSSP</span>
@@ -25,17 +28,20 @@
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0 d-flex justify-content-end">
                     <li class="nav-item">
                         <a class="nav-link" aria-current="page" routerLink='/dashboard'><i
                                 class="fas fa-home fa-2x"></i>Dashboard</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" routerLink='/categorias'>
-                        <i class="fas fa-list-ul fa-2x"></i>Categorias</a>
+                            <i class="fas fa-list-ul fa-2x"></i>Categorias</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" routerLink='/produtos'><i class="fas fa-box-open fa-2x"></i>Produtos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" routerLink='/pedidos'><i class="fas fa-file-invoice fa-2x"></i>Pedidos</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#"><i class="fas fa-users fa-2x"></i>Clientes</a>
@@ -47,7 +53,7 @@
                         <a class="nav-link" href="#"><i class="fas fa-key fa-2x"></i>Usuários</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#"><i class="fas fa-sign-out-alt fa-2x "></i>Sair</a>
+                        <a class="nav-link" (click)="logout()"><i class="fas fa-sign-out-alt fa-2x "></i>Sair</a>
                     </li>
                 </ul>
             </div>
@@ -55,6 +61,8 @@
     </nav>
 </div>
 
+<!-- versão sidebar sem JS
+    
 <nav class="navbar navbar-light bg-light shadow">
     <div class="container-fluid">
         <button class="navbar-toggler" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal">
@@ -62,7 +70,6 @@
         </button>
     </div>
 </nav>
-
 
 <div class="modal fade" id="overlay" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-fullscreen" id="modal">
@@ -77,12 +84,12 @@
 
                     <li class="list-group-item">
                         <a class="nav-link" aria-current="page" routerLink='/dashboard'>
-                        <i class="far fa-chart-bar fa-2x"></i>Dashboard</a>
+                            <i class="far fa-chart-bar fa-2x"></i>Dashboard</a>
                     </li>
 
                     <li class="list-group-item">
                         <a class="nav-link" aria-current="page" routerLink='/categorias'>
-                        <i class="fas fa-list-ol fa-2x"></i>Categorias</a>
+                            <i class="fas fa-list-ol fa-2x"></i>Categorias</a>
                     </li>
 
                     <li class="list-group-item"><i class="fas fa-box-open fa-2x"></i>Produtos</li>

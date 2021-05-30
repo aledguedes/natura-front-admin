@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-navbar',
@@ -7,9 +8,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NavbarComponent implements OnInit {
 
-  constructor() { }
+  constructor(private router : Router) { }
 
-  ngOnInit(): void {
+  ngOnInit(): void { 
+  }
+
+  public logout(){
+    localStorage.removeItem("LTRTK");
+    this.router.navigate(['/']);
+  }
+
+  public openModal(){
     const handleClickOutside = (event) => {
       let overlay = document.getElementById("overlay");
       let modal = document.getElementById("modal");
@@ -26,6 +35,6 @@ export class NavbarComponent implements OnInit {
       overlay.style.display = 'flex'
       modal.style.display = 'flex'
       setTimeout(() => { document.addEventListener('click', handleClickOutside, false) }, 200);
-  } 
+    }
   }
 }

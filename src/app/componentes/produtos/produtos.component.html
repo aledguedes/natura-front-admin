@@ -11,30 +11,32 @@
         <table class="table table-hover">
             <thead>
                 <tr>
-                    <th scope="col">ID</th>
+                    <th scope="col">Foto</th>
                     <th scope="col">Nome Produto</th>
                     <th scope="col">Preço</th>
                     <th scope="col">Categoria</th>
-                    <th scope="col">Em Destaque</th>
+                    <th scope="col">Destaque</th>
                     <th scope="col">Disponível</th>
                 </tr>
             </thead>
             <tbody>
                 <!-- AQUI O LOOP DOS PRODUTOS -->
                 <tr *ngFor="let Item of lista">
-                    <td scope="row">{{ Item.id }}</td>
+                    <td scope="row"><img src="{{Item.linkFoto}}" height="35"></td>
                     <td><a class="nav-link" routerLink='/editarproduto/{{Item.id}}'>{{ Item.nome }}</a></td>
                     <td>{{ Item.preco | number: '1.2-2' | currency: 'BRL' }}</td>
                     <td>{{ Item.categoria.nome }}</td>
                     <td>
                         <div class="form-check form-switch">
-                            <input class="form-check-input" type="checkbox" id="chkDestaque" (click)="destaque(Item.id)">
+                            <input class="form-check-input" type="checkbox" id="chkDestaque" [(ngModel)]="Item.destaque"
+                                (change)="destaque(Item)">
                         </div>
                     </td>
                     <td>
                         <div class="form-check form-switch">
-                            <input class="form-check-input" type="checkbox" id="chkDisponivel" (click)="disponivel(Item.id)">
-                          </div>
+                            <input class="form-check-input" type="checkbox" id="chkDisponivel" [(ngModel)]="Item.disponivel"
+                                (change)="disponivel(Item)">
+                        </div>
                     </td>
                 </tr>
             </tbody>

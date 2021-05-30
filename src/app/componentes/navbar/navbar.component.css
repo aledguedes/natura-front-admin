@@ -1,17 +1,25 @@
 .modal{
-    width: 300px;
+  width: 300px;
 }
 
 .modal-content {
     width: 300px;
 }
-i{
-    padding-right: 30px;
+
+ul{
+  display: flex;
+  justify-content: space-between;
 }
+
+i{
+    padding-right: 5px;
+}
+
 .list-group-item:hover {
-    background-color: rgba(59, 57, 57, 0.144);
+  background-color: rgba(59, 57, 57, 0.144);
 }
 
 a {
-    text-decoration: none;
+  text-decoration: none;
+  cursor: pointer;
 }
