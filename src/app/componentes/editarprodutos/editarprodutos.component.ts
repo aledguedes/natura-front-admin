@@ -1,10 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { APP_BOOTSTRAP_LISTENER, Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Categoria } from 'src/app/model/Categoria';
 import { PathDTO } from 'src/app/model/PathDTO';
 import { Produto } from 'src/app/model/Produto';
 import { CategoriaService } from 'src/app/servicos/categoria.service';
-import { ProdutoService } from 'src/app/servicos/produto.service';
+import { ProdutoService } from 'src/app/servicos/produto.service';  
 
 @Component({
   selector: 'app-editarprodutos',
@@ -54,6 +54,15 @@ export class EditarprodutosComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    /*var option = {
+      Animation : true,
+      delay : 2000
+    }
+    document.getElementById("toastbtn").onclick = function() {
+      var myAlert =document.getElementById('toastNotice');//select id of toast
+      var bsAlert = new bootstrap.Toast(myAlert);//inizialize it
+      bsAlert.show();//show it
+    }*/
   }
 
   public uploadFoto(){
