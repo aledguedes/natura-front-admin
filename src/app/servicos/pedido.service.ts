@@ -9,7 +9,7 @@ export class PedidoService {
 
   constructor(private http : HttpClient) { }
 
-  public  getAllPedidos(){
+  public getAllPedidos(){
     let token: string;
     token = localStorage.getItem("LTRTK");
  

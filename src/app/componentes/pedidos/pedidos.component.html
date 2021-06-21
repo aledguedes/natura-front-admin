@@ -5,14 +5,17 @@
     <div class="modal-dialog modal-dialog-scrollable">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Detalhe do Pedido {{detalhe.idPedido}}</h5>
+                <h5 class="modal-title text-center" id="exampleModalLabel">Detalhe do Pedido {{detalhe.idPedido}}</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <h6>{{detalhe.cliente.nome}}</h6>
-                <strong>TOTAL:</strong> {{detalhe.valorTotal | currency: 'BRL'}}<br>
-                <p><strong>Endereço:</strong> {{detalhe.cliente.logradouro}}, {{detalhe.cliente.numero}}<br>
-                    {{detalhe.cliente.bairro}} - {{detalhe.cliente.cidade}} - {{detalhe.cliente.cep}}
+                <p>
+                    <strong>Cliente:</strong> {{detalhe.cliente.nome}}<br>
+                    <strong>Total:</strong> {{detalhe.valorTotal | currency: 'BRL'}}<br>
+                    <strong>Endereço:</strong> {{detalhe.cliente.logradouro}}, {{detalhe.cliente.numero}}<br>
+                    <strong>Bairro: </strong>{{detalhe.cliente.bairro}} <br>
+                    <strong>Cidade: </strong>{{detalhe.cliente.cidade}} <br>
+                    <strong>CEP:</strong> {{detalhe.cliente.cep}}
                 </p>
                 <p><strong>Observações:</strong>{{detalhe.observacoes}}</p>
                 <hr>
@@ -82,7 +85,8 @@
                         <input type="radio" class="btn-check" name="btn-{{ITEM.idPedido}}"
                             id="btnradio1-{{ITEM.idPedido}}" autocomplete="off" *ngIf="ITEM.status!=1"
                             (click)="alterarStatus(ITEM,1)">
-                        <label class="btn btn-outline-primary" for="btnradio1-{{ITEM.idPedido}}"><i class="fas fa-dollar-sign"></i></label>
+                        <label class="btn btn-outline-primary" for="btnradio1-{{ITEM.idPedido}}"><i
+                                class="fas fa-dollar-sign"></i></label>
 
                         <input type="radio" class="btn-check" name="btn-{{ITEM.idPedido}}"
                             id="btnradio2-{{ITEM.idPedido}}" autocomplete="off" checked *ngIf="ITEM.status==2">

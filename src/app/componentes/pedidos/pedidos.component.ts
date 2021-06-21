@@ -27,7 +27,6 @@ export class PedidosComponent implements OnInit {
   }
 
   public alterarStatus(pedido: Pedido, status: number) {
-
     this.service.alterarStatus(pedido, status).subscribe(
       (res: Pedido) => {
         alert("Status do pedido alterado!");

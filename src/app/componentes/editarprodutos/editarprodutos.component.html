@@ -1,24 +1,4 @@
 <app-navbar></app-navbar>
-
-<div class="modal fade" id="modalResultado" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Resultado da Operação</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-                {{mensagemTOAST}}
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"
-                    (click)="fecharModal()">Close</button>
-            </div>
-        </div>
-    </div>
-</div>
-
-
 <div class="container">
     <div class="row" *ngIf="mode == 0">
         <div class="col-sm text-center">
@@ -101,36 +81,20 @@
     </div>
 </div>
 
-<!-- botao do modal invisível -->
-<button type="button" id="btnModal" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalResultado">
-    Modal
-</button>
-
-<!--
-<div class="container d-flex justify-content-evenly mb-3">
-    <button type="button" class="btn btn-primary" routerLink='/categorias'>
-        <i class="fas fa-arrow-left"></i> Voltar
-    </button>
-
-    <button type="button" class="btn btn-primary" (click)="atualizarCategoria()">
-        Atualizar Categoria
-    </button>
-</div>
-
-
-<button type="button" class="btn btn-primary" id="liveToastBtn">Show live toast</button>
-
-<div class="position-fixed bottom-0 end-0 p-3" style="z-index: 5">
-  <div id="liveToast" class="toast hide" role="alert" aria-live="assertive" aria-atomic="true">
-    <div class="toast-header">
-      <img src="..." class="rounded me-2" alt="...">
-      <strong class="me-auto">Bootstrap</strong>
-      <small>11 mins ago</small>
-      <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+<div class="modal fade" id="modalResultado" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Resultado da Operação</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                {{mensagemTOAST}}
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"
+                    (click)="fecharModal()">Close</button>
+            </div>
+        </div>
     </div>
-    <div class="toast-body">
-      Hello, world! This is a toast message.
-    </div>
-  </div>
 </div>
--->
